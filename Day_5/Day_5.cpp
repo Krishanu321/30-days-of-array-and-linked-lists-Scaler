@@ -1,13 +1,13 @@
-int Solution::slove(vector<int> &A)
+int Solution::maxProfit(const vector<int> &A)
 {
-    int n = A.size();
-    int k = 0;
-    for (int i = 0; i < n - 1; i++)
+    if (A.size() <= 0)
+        return 0;
+    int mi = A[0];
+    int mx = 0;
+    for (int i = 0; i < A.size(); i++)
     {
-        if (A[i] % 2 == A[i + 1] % 2)
-        {
-            k++;
-        }
+        mi = min(mi, A[i]);
+        mx = max(mx, A[i] - mi);
     }
-    return n - k;
+    return mx;
 }
